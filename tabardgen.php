@@ -53,7 +53,8 @@ class tabard
 			if(substr($localpath,-1,1)!='/')
 				$localpath.='/';	
 			if(!file_exists($localpath)) //Create the cache folder
-				mkdir($localpath);
+				if(!mkdir($localpath))
+					die("Could not create cache folder");
 		}
 		foreach($basefilenames as $key=>$file)
 		{
